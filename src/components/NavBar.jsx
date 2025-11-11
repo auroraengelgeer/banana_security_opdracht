@@ -5,7 +5,7 @@ import {AuthContext} from "../context/AuthContext";
 
 function NavBar() {
     const navigate = useNavigate();
-    const {isAuthenticated, logOut, toggleIsAuthenticated} = useContext(AuthContext);
+    const {isAuthenticated, logOut} = useContext(AuthContext);
     console.log("isAuthenticated", isAuthenticated);
 
     function handleLogout(e) {
