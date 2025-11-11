@@ -5,9 +5,13 @@ import {AuthContext} from "../context/AuthContext";
 
 function NavBar() {
     const navigate = useNavigate();
-    const {isAuthenticated, toggleIsAuthenticated} = useContext(AuthContext);
-
+    const {isAuthenticated, logOut, toggleIsAuthenticated} = useContext(AuthContext);
     console.log("isAuthenticated", isAuthenticated);
+
+    function handleLogout(e) {
+        e.preventDefault();
+        logOut();
+    }
 
     return (
         <nav>
@@ -42,7 +46,7 @@ function NavBar() {
                 {isAuthenticated && (
                     <button
                         type="button"
-                        onClick={() => toggleIsAuthenticated(false)}
+                        onClick={handleLogout}
                     >
                         Log out
                     </button>
