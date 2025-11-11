@@ -7,18 +7,17 @@ export const AuthContext = createContext(null);
 
 function AuthContextProvider({children}) {
 
-    const [user, setUser] = React.useState({
-        username: "Aurora",
-        password: "aurora123",
-    });
+
+    const [isAuthenticated, toggleIsAuthenticated] = React.useState(false);
 
     const data = {
-        user,
-        setUser,
+        isAuthenticated,
+        toggleIsAuthenticated,
     }
 
+
     return (
-        <AuthContext.Provider value={{ user, setUser }}>
+        <AuthContext.Provider value={data}>
             {children}
         </AuthContext.Provider>
     )
